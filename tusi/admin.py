@@ -19,8 +19,9 @@ class BasePageAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if change:
             original = obj.__class__.objects.get(pk=obj.pk)
-            if not form.cleaned_data.get('link_przycisku'):
-                obj.link_przycisku = original.link_przycisku
+            if 'link_przycisku' in form.cleaned_data:
+                if not form.cleaned_data.get('link_przycisku'):
+                    obj.link_przycisku = getattr(original, 'link_przycisku', None)
         super().save_model(request, obj, form, change)
 
 

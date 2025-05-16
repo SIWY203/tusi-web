@@ -19,7 +19,7 @@ def home(request):
 
 
 def o_nas(request):
-    posts = O_nas.objects.order_by('-kolejnosc')
+    posts = O_nas.objects.order_by('kolejnosc')
 
     return render(request, 'tusi/o_nas.html', {
         'title': 'O nas',
@@ -37,7 +37,7 @@ def aktualnosci(request):
 
 
 def oferta(request):
-    posts = Oferta.objects.order_by('-kolejnosc')
+    posts = Oferta.objects.order_by('kolejnosc')
     cennik = Cennik.objects.all()
     pozycje = Oferta_pozycja.objects.all()
     podstrony_posty = []
@@ -56,7 +56,7 @@ def oferta(request):
 
 def oferta_podstrona(request, slug):
     pozycja = get_object_or_404(Oferta_pozycja, slug=slug)
-    posts = pozycja.posts.order_by('-kolejnosc')  # Pobieranie powiązanych postów
+    posts = pozycja.posts.order_by('kolejnosc')  # Pobieranie powiązanych postów
     return render(request, 'tusi/oferta_podstrona.html', {
         'pozycja': pozycja,
         'posts': posts,
@@ -73,7 +73,7 @@ def galeria(request):
 
 
 def kontakt(request):
-    posts = Kontakt.objects.order_by('-kolejnosc')
+    posts = Kontakt.objects.order_by('kolejnosc')
 
     return render(request, 'tusi/kontakt.html', {
         'title': 'Kontakt',
@@ -82,7 +82,7 @@ def kontakt(request):
 
 
 def cennik(request):
-    posts = Cennik.objects.order_by('-kolejnosc')
+    posts = Cennik.objects.order_by('kolejnosc')
 
     return render(request, 'tusi/cennik.html', {
         'title': 'Cennik',

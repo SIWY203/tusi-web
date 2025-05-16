@@ -6,10 +6,12 @@ class Oferta_pozycja(models.Model):
     nazwa = models.CharField(max_length=1000, blank=True, null=True)
     tytul = models.CharField(max_length=1000, blank=True, null=True)
     slug = models.SlugField(unique=True, blank=True)
+    kolejnosc = models.PositiveIntegerField(default=1)
 
     class Meta:
         verbose_name = "Podstrona oferty"
         verbose_name_plural = "Podstrony oferty"
+        ordering = ['-kolejnosc']
 
     def save(self, *args, **kwargs):
         if not self.slug:

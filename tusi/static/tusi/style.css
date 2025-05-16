@@ -145,7 +145,7 @@ KOLOR = [
 /* section config */
 .section {
     margin: 80px 7vw 0px 7vw;
-    max-width: 1280px;
+    max-width: 1000px;
     padding: 40px;
     border-radius: 20px;
     border: 3vw solid var(--color-secondary);
@@ -944,7 +944,7 @@ KOLOR = [
         width: 100%;
     }
 }
-@media screen and (max-width: 1460px){
+@media screen and (max-width: 1160px){
     .section {
         border-radius: 0px;
     }

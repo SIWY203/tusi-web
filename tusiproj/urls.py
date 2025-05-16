@@ -5,9 +5,9 @@ from filebrowser.sites import site
 from django.conf import settings
 
 urlpatterns = [
+    path("admin/filebrowser/", site.urls),
     path('admin/', admin.site.urls),
     path('', include('tusi.urls')),
-    path('admin/filebrowser/', site.urls),
 ]
 
 # media folder
