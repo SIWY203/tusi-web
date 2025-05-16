@@ -15,6 +15,13 @@ class BasePageAdmin(admin.ModelAdmin):
         if db_field.name == "slug":
             field.label = "Adres"
         return field
+    # anty-clear pola link_przycisku
+    def save_model(self, request, obj, form, change):
+        if change:
+            original = obj.__class__.objects.get(pk=obj.pk)
+            if not form.cleaned_data.get('link_przycisku'):
+                obj.link_przycisku = original.link_przycisku
+        super().save_model(request, obj, form, change)
 
 
 # OFERTA_POZYCJA ----------------------------
