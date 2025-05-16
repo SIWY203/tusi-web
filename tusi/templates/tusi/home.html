@@ -19,22 +19,24 @@ views.py - home, oferta, oferta, last_post, last_about
 {% endif %}
 
 
-{% if oferta %}
-        {% with item=oferta %}  
-            {% include 'tusi/sekcja.html' %}
-        {% endwith %}
-{% endif %}
-
-
+{% comment %} 
 {% if about %}
         {% with item=about %}  
             {% include 'tusi/sekcja.html' %}
         {% endwith %}
 {% endif %}
+{% endcomment %}
 
 
 {% if posts %}
         {% with item=posts %}  
+            {% include 'tusi/sekcja.html' %}
+        {% endwith %}
+{% endif %}
+
+
+{% if oferta %}
+        {% with item=oferta %}  
             {% include 'tusi/sekcja.html' %}
         {% endwith %}
 {% endif %}
