@@ -1,0 +1,45 @@
+{% extends 'tusi/layout.html' %}
+
+{% load static %}
+
+{% block header %}
+    Diagnoza i terapia TUSI
+{% endblock header %}
+
+{% block content %}
+
+{% comment %} 
+views.py - home, oferta, oferta, last_post, last_about
+{% endcomment %}
+
+{% if home %}
+        {% for item in home %}  
+            {% include 'tusi/sekcja.html' %}
+        {% endfor %}
+{% endif %}
+
+
+{% if oferta %}
+        {% with item=oferta %}  
+            {% include 'tusi/sekcja.html' %}
+        {% endwith %}
+{% endif %}
+
+
+{% if about %}
+        {% with item=about %}  
+            {% include 'tusi/sekcja.html' %}
+        {% endwith %}
+{% endif %}
+
+
+{% if posts %}
+        {% with item=posts %}  
+            {% include 'tusi/sekcja.html' %}
+        {% endwith %}
+{% endif %}
+
+
+{% endblock content %}
+
+    

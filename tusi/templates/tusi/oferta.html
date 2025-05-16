@@ -1,0 +1,32 @@
+{% extends 'tusi/layout.html' %}
+{% load static %}
+
+{% block header %}
+    Oferta
+{% endblock header %}
+
+{% block content %}
+
+
+    {% for item in posts %}  
+        {% include 'tusi/sekcja.html' %}
+    {% endfor %}
+
+
+    {% for item in cennik %}  
+        {% include 'tusi/sekcja.html' %}
+    {% endfor %}
+    
+
+    {% for item in pozycje %}  
+        {% include 'tusi/sekcja.html' %}
+    {% endfor %}
+
+    
+{% endblock content %}
+
+
+
+
+
+

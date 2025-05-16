@@ -1,0 +1,35 @@
+{% load static %}
+
+{% block section %}
+
+    <section class="section {{ item.styl }} {{ item.kolor }}">
+        <div class="section-body"> 
+            <div class="col1">
+                {% if item.zdjecie %}
+                    <img src="{{ item.zdjecie.url }}"/>
+                {% endif %}
+                {% if item.data %}
+                    <div class="data">dodano: {{ item.data|date:"l, d F Y" }}</div>
+                {% endif %}
+                {% if item.tytul %}
+                    <h2 class="h-bottom">{{ item.tytul }}</h2>
+                {% endif %}
+            </div>
+            <div class="col2">
+                {% if item.tytul %}
+                    <h2>{{ item.tytul }}</h2>
+                {% endif %}
+                <p>{{ item.tekst|safe }}</p>
+                {% if item.plik %}
+                    <a href="{{ item.plik.url }}" target="_blank">{{ item.tekst_pliku }}</a>
+                {% endif %}
+                <br>
+                {% if item.tekst_przycisku %}
+                    <a class="button" href="{{ item.link_przycisku|default:'#' }}">{{ item.tekst_przycisku }}</a>
+                {% endif %}
+            </div>
+        </div> <!-- sec-body -->
+    </section>
+
+{% endblock section %}
+
