@@ -694,6 +694,7 @@ KOLOR = [
     background-color: var(--color-primary);
     transform: translateX(100%);
     transition: var(--transition);
+    overflow-y: auto;
 }
 #nav-mobile a {
     display: block;
@@ -703,6 +704,9 @@ KOLOR = [
     text-decoration: none;
     color: var(--color-secondary);
     background-color: var(--color-primary);
+}
+#nav-mobile > a:last-child {
+    margin-bottom: 6rem;
 }
 #nav-mobile > a:not(#close-button) {
     border-left: 4px solid var(--color-accent-1);

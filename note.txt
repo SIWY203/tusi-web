@@ -1,0 +1,42 @@
+======== Install Django ========
+
+py -m venv .venv
+source .venv/Scripts/activate
+py -m pip install django
+py -m pip install -U pip
+import django
+print(django.get_version())
+
+=== Get & Istall Requirements ===
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+======== setup.sh script ========
+
+bash setup.sh
+
+
+
+
+
+=== TO DO ===
+
+templatka - mały obrazek poniżej (terapia ręki)
+ckeditor - poprawić upload zdjęć w główne pole
+
+WSZYSTKO NA ANGIELSKI
+
+__init__ pakiety ogarnąć
+strefa czasowa
+migracja bazy danych
+brak 404
+
+coś zamiast ckeditora?
+konto moderatora
+dokumentacja
+prezentacja
+
+
+statyczne w wersji produkcyjnej, żeby działały - requirements: whitenoise==6.9.0
+settings.py: Debug=False, Hosts [*]
