@@ -1,90 +1,85 @@
-from django.shortcuts import render
-from django.shortcuts import get_object_or_404
-from .models import Aktualnosci, O_nas, Oferta, Galeria, Kontakt, Cennik, Home
-from oferta_podstrony.models import Oferta_pozycja
+from django.shortcuts import render, get_object_or_404
+from .models import News, AboutUs, Offer, Gallery, Contact, Pricing, Home
+from offer_subpages.models import OfferItem
 
 
 def home(request):
-    oferta = Oferta.objects.last()
-    last_about = O_nas.objects.first()
-    last_post = Aktualnosci.objects.last()
-    home = Home.objects.all()
+    offer = Offer.objects.last()
+    last_about = AboutUs.objects.first()
+    last_news = News.objects.last()
+    home_sections = Home.objects.all()
     context = {
-        'oferta': oferta,
-        'posts': last_post,
+        'offer': offer,
+        'news': last_news,
         'about': last_about,
-        'home': home,
+        'home': home_sections,
     }
     return render(request, 'tusi/home.html', context)
 
 
-def o_nas(request):
-    posts = O_nas.objects.order_by('kolejnosc')
-
-    return render(request, 'tusi/o_nas.html', {
-        'title': 'O nas',
+def about_us(request):
+    posts = AboutUs.objects.order_by('order')
+    return render(request, 'tusi/about_us.html', {
+        'title': 'About Us',
         'posts': posts
     })
 
 
-def aktualnosci(request):
-    posts = Aktualnosci.objects.order_by('-kolejnosc')
-
-    return render(request, 'tusi/aktualnosci.html', {
-        'title': 'Aktualności',
+def news(request):
+    posts = News.objects.order_by('-order')
+    return render(request, 'tusi/news.html', {
+        'title': 'News',
         'posts': posts
     })
 
 
-def oferta(request):
-    posts = Oferta.objects.order_by('kolejnosc')
-    cennik = Cennik.objects.all()
-    pozycje = Oferta_pozycja.objects.all()
-    podstrony_posty = []
-    for pozycja in pozycje:
-        pierwszy_post = pozycja.posts.order_by('kolejnosc').first()
-        if pierwszy_post:
-            podstrony_posty.append(pierwszy_post)
+def offer(request):
+    posts = Offer.objects.order_by('order')
+    pricing = Pricing.objects.all()
+    items = OfferItem.objects.all()
+    subpages_posts = []
 
-    return render(request, 'tusi/oferta.html', {
-        'title': 'Oferta',
+    for item in items:
+        first_post = item.posts.order_by('order').first()
+        if first_post:
+            subpages_posts.append(first_post)
+
+    return render(request, 'tusi/offer.html', {
+        'title': 'Offer',
         'posts': posts,
-        'cennik': cennik,
-        'pozycje': podstrony_posty, # nazwa podstron
+        'pricing': pricing,
+        'items': subpages_posts,
     })
 
 
-def oferta_podstrona(request, slug):
-    pozycja = get_object_or_404(Oferta_pozycja, slug=slug)
-    posts = pozycja.posts.order_by('kolejnosc')  # Pobieranie powiązanych postów
-    return render(request, 'tusi/oferta_podstrona.html', {
-        'pozycja': pozycja,
+def offer_subpage(request, slug):
+    item = get_object_or_404(OfferItem, slug=slug)
+    posts = item.posts.order_by('order')
+    return render(request, 'tusi/offer_subpage.html', {
+        'item': item,
         'posts': posts,
     })
 
 
-def galeria(request):
-    posts = Galeria.objects.order_by('-kolejnosc')
-
-    return render(request, 'tusi/galeria.html', {
-        'title': 'Galeria',
+def gallery(request):
+    posts = Gallery.objects.order_by('-order')
+    return render(request, 'tusi/gallery.html', {
+        'title': 'Gallery',
         'posts': posts
     })
 
 
-def kontakt(request):
-    posts = Kontakt.objects.order_by('kolejnosc')
-
-    return render(request, 'tusi/kontakt.html', {
-        'title': 'Kontakt',
+def contact(request):
+    posts = Contact.objects.order_by('order')
+    return render(request, 'tusi/contact.html', {
+        'title': 'Contact',
         'posts': posts
     })
 
 
-def cennik(request):
-    posts = Cennik.objects.order_by('kolejnosc')
-
-    return render(request, 'tusi/cennik.html', {
-        'title': 'Cennik',
+def pricing(request):
+    posts = Pricing.objects.order_by('order')
+    return render(request, 'tusi/pricing.html', {
+        'title': 'Pricing',
         'posts': posts
     })

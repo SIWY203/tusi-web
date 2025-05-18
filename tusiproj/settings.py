@@ -28,7 +28,7 @@ INSTALLED_APPS = [
 
     # tusi app
     'tusi.apps.TusiConfig',
-    'oferta_podstrony',
+    'offer_subpages',
     'ckeditor',
     'filebrowser',
 
@@ -58,8 +58,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
 
                 # tusi navbar
-                'tusi.context_processors.oferta_pozycje_context',
-                'tusi.context_processors.stopka_context',
+                'tusi.context_processors.offer_item_context',
+                'tusi.context_processors.footer_context',
             ],
         },
     },

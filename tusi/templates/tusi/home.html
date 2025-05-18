@@ -9,12 +9,12 @@
 {% block content %}
 
 {% comment %} 
-views.py - home, oferta, oferta, last_post, last_about
+views.py - home_section, offer, last_news, last_about
 {% endcomment %}
 
 {% if home %}
         {% for item in home %}  
-            {% include 'tusi/sekcja.html' %}
+            {% include 'tusi/section.html' %}
         {% endfor %}
 {% endif %}
 
@@ -22,22 +22,22 @@ views.py - home, oferta, oferta, last_post, last_about
 {% comment %} 
 {% if about %}
         {% with item=about %}  
-            {% include 'tusi/sekcja.html' %}
+            {% include 'tusi/section.html' %}
         {% endwith %}
 {% endif %}
 {% endcomment %}
 
 
-{% if posts %}
-        {% with item=posts %}  
-            {% include 'tusi/sekcja.html' %}
+{% if news %}
+        {% with item=news %}  
+            {% include 'tusi/section.html' %}
         {% endwith %}
 {% endif %}
 
 
-{% if oferta %}
-        {% with item=oferta %}  
-            {% include 'tusi/sekcja.html' %}
+{% if offer %}
+        {% with item=offer %}  
+            {% include 'tusi/section.html' %}
         {% endwith %}
 {% endif %}
 

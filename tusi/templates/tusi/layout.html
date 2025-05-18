@@ -21,19 +21,19 @@
             <input type="text" name="search-field" placeholder="Szukaj..." />
         </form>
         <a href="{% url 'home' %}" id="nav-home-button"><img src="{% static 'img/home.svg' %}" alt="Strona Domowa" /></a>
-        <a href="{% url 'aktualnosci' %}">Aktualności</a>
-        <a href="{% url 'o_nas' %}">O nas</a>
+        <a href="{% url 'news' %}">Aktualności</a>
+        <a href="{% url 'about_us' %}">O nas</a>
         <div class="dropdown">
-            <a href="{% url 'oferta' %}">Oferta</a>
+            <a href="{% url 'offer' %}">Oferta</a>
             <div class="dropdown-content">
-                <a href="{% url 'cennik' %}">Cennik</a>
-                {% for pozycja in oferta_pozycje %}
-                    <a href="{% url 'oferta_podstrona' slug=pozycja.slug %}">{{ pozycja.tytul }}</a>
+                <a href="{% url 'pricing' %}">Cennik</a>
+                {% for item in offer_subpage %}
+                    <a href="{% url 'offer_subpage' slug=item.slug %}">{{ item.title }}</a>
                 {% endfor %}
             </div>
         </div>
-        <a href="{% url 'galeria' %}">Galeria</a>
-        <a href="{% url 'kontakt' %}">Kontakt</a>        
+        <a href="{% url 'gallery' %}">Galeria</a>
+        <a href="{% url 'contact' %}">Kontakt</a>        
     </div>
     <button id="menu-button" onclick="openMenu()">
         <img class="menu-button" src="{% static 'img/menu.svg' %}" alt="Menu" />
@@ -42,18 +42,18 @@
         <a id="close-button" onclick="closeMenu()">
             <img src="{% static 'img/close.svg' %}" alt="Zamknij" />
         </a>
-        <a href="{% url 'aktualnosci' %}">Aktualności</a>
-        <a href="{% url 'o_nas' %}">O nas</a>
-        <a href="{% url 'oferta' %}">Oferta</a>
+        <a href="{% url 'news' %}">Aktualności</a>
+        <a href="{% url 'about_us' %}">O nas</a>
+        <a href="{% url 'offer' %}">Oferta</a>
             <ul>
-                {% for pozycja in oferta_pozycje %}
+                {% for item in offer_subpage %}
                 <li>
-                    <a href="{% url 'oferta_podstrona' slug=pozycja.slug %}">{{ pozycja.tytul }}</a>
+                    <a href="{% url 'offer_subpage' slug=item.slug %}">{{ item.title }}</a>
                 </li>
                 {% endfor %}
             </ul>
-        <a href="{% url 'galeria' %}">Galeria</a>
-        <a href="{% url 'kontakt' %}">Kontakt</a>
+        <a href="{% url 'gallery' %}">Galeria</a>
+        <a href="{% url 'contact' %}">Kontakt</a>
     </div>
     <div id="nav-mobile-blur" onclick="closeMenu()"></div>
     
@@ -74,8 +74,8 @@
         <p>Diagnoza i terapia TUSI</p><br>
 
         <span class="footer-contact">
-            <p><img src="{% static 'img/phone.svg' %}">{{footer.tel}}</p>
-            <p><img src="{% static 'img/email.svg' %}">{{footer.mail}}</p>
+            <p><img src="{% static 'img/phone.svg' %}">{{footer.phone}}</p>
+            <p><img src="{% static 'img/email.svg' %}">{{footer.email}}</p>
             <p><img src="{% static 'img/place.svg' %}">{{footer.adres}}</p>
         </span>
         <a class="admin-button" href="/admin/">admin</a>

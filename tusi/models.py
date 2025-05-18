@@ -3,8 +3,8 @@ from ckeditor.fields import RichTextField
 
 
 class Footer(models.Model):
-    tel = models.CharField("Telefon", max_length=1000, blank=True, null=True)
-    mail = models.EmailField("E-mail", max_length=1000, blank=True, null=True)
+    phone = models.CharField("Telefon", max_length=1000, blank=True, null=True)
+    email = models.EmailField("E-mail", max_length=1000, blank=True, null=True)
     adres = models.CharField("Adres", max_length=1000, blank=True, null=True)
 
     def __str__(self):
@@ -31,7 +31,7 @@ STYLE = [
         ('img-bot',   'Obrazek na dole'),
     ]
 
-KOLOR = [
+COLOR = [
     ('kol-bialy',      'Biały'),
     ('kol-szary',      'Szary'),
     ('kol-niebieski',  'Niebieski'),
@@ -41,81 +41,80 @@ KOLOR = [
 
 
 class Page(models.Model):
-    nazwa = models.CharField(max_length=1000, blank=True, null=True)
-    tytul = models.CharField(max_length=1000, blank=True, null=True)
-    tekst = RichTextField(max_length=60000, blank=True, null=True)
-    tekst_przycisku = models.CharField(max_length=1000, blank=True, null=True)
-    link_przycisku = models.CharField(max_length=1000, blank=True, null=True)
-    tekst_pliku = models.CharField(max_length=1000, blank=True, null=True)
-    plik = models.FileField(upload_to='pliki/', blank=True, null=True)
-    zdjecie = models.ImageField(blank=True, null=True, upload_to='aktualnosci/', max_length=255)
-    data = models.DateTimeField(blank=True, null=True)
-    styl = models.CharField(max_length=90, choices=STYLE, default='default')
-    kolor = models.CharField(max_length=90, choices=KOLOR, default='kol-bialy')
-    kolejnosc = models.PositiveIntegerField(default=0)
+    name = models.CharField(max_length=1000, blank=True, null=True)
+    title = models.CharField(max_length=1000, blank=True, null=True)
+    text = RichTextField(max_length=60000, blank=True, null=True)
+    button_text = models.CharField(max_length=1000, blank=True, null=True)
+    button_link = models.CharField(max_length=1000, blank=True, null=True)
+    file_text = models.CharField(max_length=1000, blank=True, null=True)
+    file = models.FileField(upload_to='files/', blank=True, null=True)
+    image = models.ImageField(blank=True, null=True, upload_to='images/', max_length=255)
+    date = models.DateTimeField(blank=True, null=True)
+    style = models.CharField(max_length=90, choices=STYLE, default='default')
+    color = models.CharField(max_length=90, choices=COLOR, default='kol-bialy')
+    order = models.PositiveIntegerField(default=0)
 
     class Meta:
         abstract = True
-        ordering = ['kolejnosc']
+        ordering = ['order']
 
     def save(self, *args, **kwargs):
-        # Jeśli kolejność to 0 lub nieustawiona, ustaw na najwyższą + 1
-        if self.kolejnosc == 0:
-            # Pobieramy wszystkie obiekty z tej samej klasy
+        # If order is 0 or not set, assign the next highest value
+        if self.order == 0:
+            # Get all objects of the same model
             ModelClass = self.__class__
-            max_kolejnosc = ModelClass.objects.aggregate(models.Max('kolejnosc'))['kolejnosc__max'] or 0
-            self.kolejnosc = max_kolejnosc + 1
+            max_order = ModelClass.objects.aggregate(models.Max('order'))['order__max'] or 0
+            self.order = max_order + 1
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return self.nazwa or "None"
+        return self.name or "None"
 
 
-class Aktualnosci(Page):
-
-    class Meta:
-        verbose_name = "aktualności"
-        verbose_name_plural = "aktualności"
-    
-
-class O_nas(Page):
+class News(Page):
 
     class Meta:
-        verbose_name = "o nas"
-        verbose_name_plural = "o nas"
-    
-
-class Oferta(Page):
-
-    class Meta:
-        verbose_name = "oferta"
-        verbose_name_plural = "oferta"
+        verbose_name = "Aktualność"
+        verbose_name_plural = "Aktualności"
 
 
-class Galeria(Page):
+class AboutUs(Page):
 
     class Meta:
-        verbose_name = "galeria"
-        verbose_name_plural = "galeria"
+        verbose_name = "O nas"
+        verbose_name_plural = "O nas"
 
 
-class Kontakt(Page):
-
-    class Meta:
-        verbose_name = "kontakt"
-        verbose_name_plural = "kontakt"
-
-
-class Cennik(Page):
+class Offer(Page):
 
     class Meta:
-        verbose_name = "cennik"
-        verbose_name_plural = "cennik"
+        verbose_name = "Oferta"
+        verbose_name_plural = "Oferty"
+
+
+class Gallery(Page):
+
+    class Meta:
+        verbose_name = "Galeria"
+        verbose_name_plural = "Galerie"
+
+
+class Contact(Page):
+
+    class Meta:
+        verbose_name = "Kontakt"
+        verbose_name_plural = "Kontakt"
+
+
+class Pricing(Page):
+
+    class Meta:
+        verbose_name = "Cennik"
+        verbose_name_plural = "Cenniki"
 
 
 class Home(Page):
 
     class Meta:
-        verbose_name = "strona domowa"
-        verbose_name_plural = "strona domowa"
-
+        verbose_name = "Główna"
+        verbose_name_plural = "Główne"
