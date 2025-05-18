@@ -1,5 +1,5 @@
-py -m venv .venv
+python -m venv .venv
 source .venv/Scripts/activate
-pip install -r tusi-web/requirements.txt
+pip install -r requirements.txt
 cd tusi-web
-py manage.py runserver
+python manage.py runserver
