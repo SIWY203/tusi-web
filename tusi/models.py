@@ -28,15 +28,15 @@ STYLE = [
         ('img-right-m', 'Obrazek z prawej, średni'),
         ('img-right-l', 'Obrazek z prawej, duży'),
         ('img-top',     'Obrazek na górze'),
-        ('img-bot',   'Obrazek na dole'),
+        ('img-bot',     'Obrazek na dole'),
     ]
 
 COLOR = [
-    ('kol-bialy',      'Biały'),
-    ('kol-szary',      'Szary'),
-    ('kol-niebieski',  'Niebieski'),
-    ('kol-zielony',    'Zielony'),
-    ('kol-rozowy',     'Różowy'),
+    ('color-white',     'Biały'),
+    ('color-gray',      'Szary'),
+    ('color-blue',      'Niebieski'),
+    ('color-green',     'Zielony'),
+    ('color-pink',      'Różowy'),
 ]
 
 
