@@ -22,7 +22,8 @@ bash setup.sh
 
 === TO DO ===
 
-style na ang
+home page dalej
+
 spolszczyć interfejs
 
 __init__ pakiety ogarnąć

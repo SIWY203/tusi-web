@@ -4,6 +4,7 @@
     --color-accent-1: #146785;
     --color-accent-2: #9d4d88;
     --color-grays: #d4d4d4;
+    --color-dark: #222;
     --bg-color: #d9dcde;
     --ff: "DM Sans", sans-serif;
     --h1: bold 54px/64px var(--ff);
@@ -29,6 +30,7 @@ body {
     font-family: var(--ff);
     margin: 0;
     background-color: var(--bg-color);
+    scroll-behavior: smooth;
 }
 h1, h2, h3 {
     color: var(--color-accent-1);
@@ -83,19 +85,24 @@ a:hover {
     margin-right: auto;
 }
 #hero {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100vh;
+    z-index: var(--z-hero);
 }
 #hero img {
-    position: fixed;
-    top: 50px;
-    z-index: var(--z-hero);
     width: 100%;
     height: 75vh;
     object-fit: cover;
     object-position: center;
     filter: brightness(0.7) contrast(1.2);
 }
-#header {
+.header, #content, #nav, #footer {
+    position: relative;
+}
+.header {
     text-align: center;
     margin-top: 200px;
     margin-left: 4vw;

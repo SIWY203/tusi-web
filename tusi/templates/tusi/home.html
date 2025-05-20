@@ -6,21 +6,53 @@
     <img src="media/hero.png">
 {% endblock hero %}
 
+
 {% block header %}
     Diagnoza i terapia TUSI
 {% endblock header %}
 
 {% block content %}
 
-{% comment %} 
-views.py - home_section, offer, last_news, last_about
-{% endcomment %}
-
 {% if home %}
         {% for item in home %}  
             {% include 'tusi/section.html' %}
         {% endfor %}
 {% endif %}
+
+
+<div id="container">
+    <section class="home-offer section {{ item.color }} ">
+        <div class="home-header header">Nasza oferta</div>
+        <div class="offer-bg"></div>
+        <div class="section-body">
+            <div class="col1">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}"/>
+                {% endif %}
+                {% if item.date %}
+                    <div class="data">dodano: {{ item.date|date:"l, d F Y" }}</div>
+                {% endif %}
+                {% if item.title %}
+                    <h2 class="h-bottom">{{ item.title }}</h2>
+                {% endif %}
+            </div> <!-- col1 -->
+            <div class="col2">
+                {% if item.title %}
+                    <h2>{{ item.title }}</h2>
+                {% endif %}
+                <p>{{ item.text|safe }}</p>
+                {% if item.file %}
+                    <a href="{{ item.file.url }}" target="_blank">{{ item.file_text }}</a>
+                {% endif %}
+                <br>
+                {% if item.button_text %}
+                    <a class="button" href="{{ item.button_link|default:'#' }}">{{ item.button_text }}</a>
+                {% endif %}
+            </div> <!-- col2 -->
+        </div> <!-- section-body -->
+    </section>
+</div> <!-- container -->
+
 
 {% if news %}
         {% with item=news %}  
@@ -36,7 +68,12 @@ views.py - home_section, offer, last_news, last_about
 
 {% endblock content %}
 
-    
+
+{% comment %} 
+views.py - home_section, offer, last_news, last_about
+{% endcomment %}
+
+
 {% comment %} views.py:
 'news': [last_news] if last_news else [],
 

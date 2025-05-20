@@ -8,10 +8,12 @@
     <meta name="description" content="Diagnoza i terapia TUSI | Strona główna" />
     <meta name="keywords" content="tusi, diagnoza, terapia, diagnoza i terapia" />
     {% if title %} <title>{{ title }}</title> {% else %} <title>Tusi</title> {% endif %}
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'tusi/style.css' %}">
     <link rel="stylesheet" href="{% static 'tusi/section.css' %}">
-    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" />
-    <script src="{% static 'tusi/script.js' %}" defer></script>
+    <script src="{% static 'tusi/navbar.js' %}" defer></script>
+    <script src="{% static 'tusi/hero.js' %}" defer></script>
+    <script src="{% static 'tusi/scrollUp.js' %}" defer></script>
 </head>
 <body>
 
@@ -59,12 +61,14 @@
 
     <div id="wrapper">
 
-        <div id="hero">
-            {% block hero %}
-            {% endblock hero %}
+        <div id="hero-wrapper">
+            <div id="hero">
+                {% block hero %}
+                {% endblock hero %}
+            </div>
         </div>
 
-        <div id="header">
+        <div class="header">
             {% block header %}
             {% endblock header %}
         </div>
@@ -88,39 +92,5 @@
     </div>
     <button id="scrollTopBtn">↑</button>
 
-
-    <script>
-        const scrollBtn = document.getElementById("scrollTopBtn");
-        
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                scrollBtn.style.display = "block";
-            } else {
-                scrollBtn.style.display = "none";
-            }
-        });
-
-        scrollBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        function searchOnPage(event) {
-            event.preventDefault(); // Prevent form submission
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const contentElements = document.querySelectorAll('.content-element');
-            
-            contentElements.forEach(element => {
-                const text = element.innerText.toLowerCase();
-                if (text.includes(query)) {
-                    element.style.display = 'block'; // Show the element if it matches the search query
-                } else {
-                    element.style.display = 'none'; // Hide the element if it doesn't match
-                }
-            });
-        }
-    </script>
 </body>
 </html>
