@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block hero %}
+    <img src="media/hero.png">
+{% endblock hero %}
+
 {% block header %}
     Diagnoza i terapia TUSI
 {% endblock header %}
@@ -18,22 +22,11 @@ views.py - home_section, offer, last_news, last_about
         {% endfor %}
 {% endif %}
 
-
-{% comment %} 
-{% if about %}
-        {% with item=about %}  
-            {% include 'tusi/section.html' %}
-        {% endwith %}
-{% endif %}
-{% endcomment %}
-
-
 {% if news %}
         {% with item=news %}  
             {% include 'tusi/section.html' %}
         {% endwith %}
 {% endif %}
-
 
 {% if offer %}
         {% with item=offer %}  
@@ -41,7 +34,17 @@ views.py - home_section, offer, last_news, last_about
         {% endwith %}
 {% endif %}
 
-
 {% endblock content %}
 
     
+{% comment %} views.py:
+'news': [last_news] if last_news else [],
+
+{% if news %}
+        {% for item in news %}  
+            {% include 'tusi/section.html' %}
+        {% empty %}
+            Brak zawartości
+        {% endfor %}
+{% endif %}
+{% endcomment %}

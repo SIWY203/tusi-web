@@ -15,8 +15,6 @@
 </head>
 <body>
 
-    <div id="bg-color"></div>
-
     <div id="nav">
         <form class="search-field" action="" method="get">
             <input type="text" name="search-field" placeholder="Szukaj..." />
@@ -59,16 +57,23 @@
     <div id="nav-mobile-blur" onclick="closeMenu()"></div>
     
 
-    <div id="header">
-        {% block header %}
-        {% endblock header %}
-    </div>
+    <div id="wrapper">
 
+        <div id="hero">
+            {% block hero %}
+            {% endblock hero %}
+        </div>
 
-    <div id="content">
-        {% block content %}
-        {% endblock content %}
-    </div>
+        <div id="header">
+            {% block header %}
+            {% endblock header %}
+        </div>
+
+        <div id="content">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div> <!-- wrapper -->
 
 
     <div id="footer">
