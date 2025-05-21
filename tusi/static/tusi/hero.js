@@ -11,7 +11,7 @@ function updateOfferLayout() {
     const fixHeight = fixOfferBg ? fixOfferBg.offsetHeight : 0;
     const top = 0.75 * window.innerHeight - 250;
 
-    offer.style.height = `${sectionHeight + fixHeight}px`;
+    offer.style.height = `${sectionHeight + fixHeight + 200}px`;
 
     if (scrollY > 200) {
         hero.style.position = 'absolute';

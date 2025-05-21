@@ -22,22 +22,24 @@
 {% endif %}
 
 <!-- offer panel -->
-<div id="container">
+<div id="offer-container">
     <div class="home-header header">Nasza oferta</div>
     <div class="offer-section-body">
         <div class="offer-bg"></div>
         {% for item in offer %} 
         <div class="offer-col">
             {% if item.title %}
-                <h2 class="h-bottom">{{ item.title }}</h2>
+                <h2 class="offer-h2">{{ item.title }}</h2>
             {% endif %}
-            <p>{{ item.text|safe }}</p>
-            {% if item.image %}
-                <img src="{{ item.image.url }}"/>
-            {% endif %}
+                <div class="height-limiter">
+                    <p>{{ item.text|safe }}</p>
+                </div>
+            <a href="{% url 'offer_subpage' slug=item.offer_item.slug %}">więcej</a>
         </div> <!-- col -->
         {% endfor %}
     </div> <!-- section-body -->
+    <p>Sprawdź całą naszą ofertę <a href="{% url 'offer' %}">tutaj</a></p>
+    <div class="offer-margin"></div>
 </div> <!-- container -->
 
 

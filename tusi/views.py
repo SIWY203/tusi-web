@@ -4,7 +4,7 @@ from offer_subpages.models import OfferItem, Post
 
 
 def home(request):
-    offers = Post.objects.all()
+    offers = Post.objects.all()[:3]
     last_about = AboutUs.objects.first()
     last_news = News.objects.last()
     home_sections = Home.objects.all()
