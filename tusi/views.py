@@ -1,15 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .models import News, AboutUs, Offer, Gallery, Contact, Pricing, Home
-from offer_subpages.models import OfferItem
+from offer_subpages.models import OfferItem, Post
 
 
 def home(request):
-    offer = Offer.objects.last()
+    offers = Post.objects.all()
     last_about = AboutUs.objects.first()
     last_news = News.objects.last()
     home_sections = Home.objects.all()
     context = {
-        'offer': offer,
+        'offer': offers if offers else [],
         'news': last_news,
         'about': last_about,
         'home': home_sections,

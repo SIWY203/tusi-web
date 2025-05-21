@@ -23,6 +23,7 @@ bash setup.sh
 === TO DO ===
 
 home page dalej
+!! dodatkowe posty zniszczą home
 
 spolszczyć interfejs
 

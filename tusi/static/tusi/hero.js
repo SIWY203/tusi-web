@@ -1,9 +1,17 @@
-
-window.addEventListener('scroll', function () {
+function updateOfferLayout() {
     const hero = document.getElementById('hero');
     const offer = document.querySelector('.offer-bg');
+    const offerSection = document.querySelector('.offer-section-body');
+    const fixOfferBg = document.querySelector('.fix-offer-bg');
+    
+    if (!hero || !offer || !offerSection) return;
+
     const scrollY = window.scrollY;
-    const top = 0.75 * window.innerHeight - 200;
+    const sectionHeight = offerSection.offsetHeight;
+    const fixHeight = fixOfferBg ? fixOfferBg.offsetHeight : 0;
+    const top = 0.75 * window.innerHeight - 250;
+
+    offer.style.height = `${sectionHeight + fixHeight}px`;
 
     if (scrollY > 200) {
         hero.style.position = 'absolute';
@@ -16,6 +24,8 @@ window.addEventListener('scroll', function () {
         offer.style.position = 'fixed';
         offer.style.top = '75vh';
     }
-});
+}
 
-
+window.addEventListener('scroll', updateOfferLayout);
+window.addEventListener('resize', updateOfferLayout);
+window.addEventListener('load', updateOfferLayout);
