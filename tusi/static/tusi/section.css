@@ -413,13 +413,18 @@ COLOR = [
 
 /* wide-panel */
 .wide-panel.section {
-    margin: 80px 0;
+    margin-top: 80px;
     max-width: 100%;
+    width: 100%;
     border-radius: 0;
-    border: none;
+    border-left: 0;
+    border-right: 0;
+    padding-left: 0;
+    padding-right: 0;
 }
 .wide-panel .section-body {
     display: block;
+    margin: auto;
 }
 .wide-panel.section .h-bottom {
     display: none;
@@ -440,12 +445,7 @@ COLOR = [
 }
 .wide-panel.section .col2 > p {
     max-width: 1280px;
-}
-
-@media screen and (max-width: 1000px){
-    .wide-panel.section .col2 {
-        margin: 0;
-    }
+    text-align: center;
 }
 
 /* KOLORY SEKCJI - szary */
@@ -529,6 +529,10 @@ COLOR = [
     color: var(--color-grays);
     text-align: center;
 }
+#offer-container a {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
 .offer-bg {
     position: fixed;
     top: 75vh;
@@ -539,7 +543,7 @@ COLOR = [
     background-image: linear-gradient( to right, var(--color-dark), var(--color-primary), var(--color-dark));
 }
 .offer-section-body {
-    margin: 100px auto 150px auto;
+    margin: 10vh auto 15vh auto;
     width: calc(95vw - 40px);
     max-width: 1400px;
     display: flex;
@@ -570,25 +574,21 @@ COLOR = [
     color: var(--color-secondary);
     display: block;
     text-decoration: underline;
-    margin-top: 10px;
+    margin-top: 2vh;
     margin-left: auto;
     margin-right: auto;
     width: 80px;
     padding: 10px;
 }
-#offer-container a {
-    color: var(--color-secondary);
-    text-decoration: underline;
-}
-.home-header {
-    margin-top: 120px;
+.offer-header {
+    margin-top: 15vh;
     color: var(--color-secondary);
 }
 .offer-h2 {
     color: var(--color-grays);
 }
 .offer-margin {
-    margin-top: 230px;
+    margin-top: 25vh;
 }
 @media (max-width: 1280px) {
     .offer-section-body {
@@ -601,4 +601,59 @@ COLOR = [
         margin: auto;
         max-width: 700px;
     }
+}
+
+.gallery-header {
+    margin-top: 15vh;
+    color: var(--color-primary);
+}
+.gallery-section-body {
+    margin: 10vh auto 1vh auto;
+    width: calc(95vw - 40px);
+    max-width: 1400px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+.gallery-col {
+    flex: 1 1 320px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.gallery-col img {
+    min-width: 400px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    transition: var(--transition);
+    display: block;
+}
+.gallery-col img:hover {
+    overflow: hidden;
+    transform: scale(1.02);
+    box-shadow: var(--shadow);
+}
+.gallery-col p {
+    color: var(--color-primary);
+}
+
+.map-container .header {
+    color: var(--color-primary);
+    margin-top: 80px;
+}
+.map {
+    display: block;
+    margin: 80px auto 0px auto;
+    width: calc(90vw - 100px);
+    max-width: 1000px;
+    border-radius: 20px;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    border: 0;
+    border-radius: 10px;
 }

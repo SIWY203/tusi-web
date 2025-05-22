@@ -13,23 +13,23 @@
 
 {% block content %}
 
-{% if home %}
-    {% for item in home %}
+
+{% if home_1 %}
     <div class="fix-offer-bg">
-        {% include 'tusi/section.html' %}
+        {% include 'tusi/section.html' with item=home_1 %}
     </div>
-    {% endfor %}
 {% endif %}
 
 <!-- offer panel -->
 <div id="offer-container">
-    <div class="home-header header">Nasza oferta</div>
+    <div class="offer-header header">Nasza oferta</div>
     <div class="offer-section-body">
         <div class="offer-bg"></div>
         {% for item in offer %} 
         <div class="offer-col">
             {% if item.title %}
                 <h2 class="offer-h2">{{ item.title }}</h2>
+                <hr>
             {% endif %}
                 <div class="height-limiter">
                     <p>{{ item.text|safe }}</p>
@@ -44,18 +44,54 @@
 
 
 {% if news %}
-    {% with item=news %}  
+    {% with item=news %} 
         {% include 'tusi/section.html' %}
     {% endwith %}
 {% endif %}
+
+
+{% if home_2 %}
+    {% include 'tusi/section.html' with item=home_2 %}
+{% endif %}
+
+
+<!-- gallery panel -->
+<div id="gallery-container">
+    <div class="gallery-header header">Galeria</div>
+    <div class="gallery-section-body">
+        {% for item in gallery %} 
+        <div class="gallery-col">
+            {% if item.image %}
+            <a href="{% url 'gallery' %}">
+                <img src="{{ item.image.url }}"/>
+            </a>
+            {% endif %}
+                <p>{{ item.text|safe }}</p>
+        </div> <!-- col -->
+        {% endfor %}
+    </div> <!-- section-body -->
+</div> <!-- container -->
+
+<div class="map-container">
+    <div class="header">Tu jesteśmy</div>
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d488.86832495747973!2d18.6230613056751!3d54.34880316817603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46fd752c6b0d536f%3A0xab483e59b142c001!2sTUSI%20-%20terapia%20sensoryczna%20Gda%C5%84sk%2C%20Terapia%20r%C4%99ki%20Gda%C5%84sk!5e0!3m2!1spl!2spl!4v1747943854916!5m2!1spl!2spl"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+
+{% endblock content %}
+
+
+{% comment %}
 
 {% if offer %}
     {% with item=offer %}  
         {% include 'tusi/section.html' %}
     {% endwith %}
 {% endif %}
+{% endcomment %}
 
-{% endblock content %}
 
 
 {% comment %} 

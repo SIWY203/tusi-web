@@ -5,14 +5,19 @@ from offer_subpages.models import OfferItem, Post
 
 def home(request):
     offers = Post.objects.all()[:3]
-    last_about = AboutUs.objects.first()
-    last_news = News.objects.last()
-    home_sections = Home.objects.all()
+    gallery = Gallery.objects.all()[:2]
+    last_about = AboutUs.objects.order_by('order').last()
+    last_news = News.objects.order_by('order').last()
+    home_sections = Home.objects.order_by('order')[:2]
+    home_1 = home_sections[0] if len(home_sections) > 0 else None
+    home_2 = home_sections[1] if len(home_sections) > 1 else None
     context = {
         'offer': offers if offers else [],
+        'gallery': gallery if gallery else [],
         'news': last_news,
         'about': last_about,
-        'home': home_sections,
+        'home_1': home_1,
+        'home_2': home_2,
     }
     return render(request, 'tusi/home.html', context)
 
