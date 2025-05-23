@@ -22,7 +22,7 @@
                 {% endif %}
                 <p>{{ item.text|safe }}</p>
                 {% if item.file %}
-                    <a href="{{ item.file.url }}" target="_blank">{{ item.file_text }}</a>
+                    <a href="{{ item.file.url }}" target="_blank">{{ item.file_text }}</a><br>
                 {% endif %}
                 {% if item.button_text %}
                     <a class="button" href="{{ item.button_link|default:'#' }}">{{ item.button_text }}</a>

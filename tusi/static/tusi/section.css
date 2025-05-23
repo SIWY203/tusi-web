@@ -12,12 +12,13 @@ STYLE = [
         ('img-right-m', 'Obrazek z prawej, średni'),
         ('img-right-l', 'Obrazek z prawej, duży'),
         ('img-top',     'Obrazek na górze'),
-        ('img-bot',   'Obrazek na dole'),
+        ('img-bot',     'Obrazek na dole'),
     ]
 COLOR = [
-    ('color-white',      'Biały'),
-    ('color-gray',      'Szary'),
-    ('color-blue',  'Niebieski'),
+    ('color-white',    'Biały'),
+    ('color-gray',     'Szary'),
+    ('color-aqua',     'Błękitny'),
+    ('color-blue',     'Niebieski'),
     ('color-green',    'Zielony'),
     ('color-pink',     'Różowy'),
 ] */
@@ -25,10 +26,10 @@ COLOR = [
 /* section config */
 .section {
     margin: 80px auto 0px auto;
-    width: calc(90vw - 100px);
+    width: calc(90vw - 80px);
     max-width: 1000px;
-    padding: 40px;
-    border-radius: 20px;
+    padding: 30px;
+    border-radius: 10px;
     border: 3vw solid var(--color-secondary);
     background-color: var(--color-secondary);
 }
@@ -44,7 +45,7 @@ COLOR = [
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 /* default */
@@ -62,15 +63,14 @@ COLOR = [
     order: 2;
     flex: 1;
     min-width: 360px;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+
 }
-.default.section .col2 > * {
+.default.section .col2 * {
     align-self: flex-start;
 }
 .default.section .col2 > .button {
-    margin-top: auto;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .default.section .col1 > .data {
     font-size: 18px;
@@ -421,6 +421,7 @@ COLOR = [
     border-right: 0;
     padding-left: 0;
     padding-right: 0;
+    box-shadow: var(--shadowdark);
 }
 .wide-panel .section-body {
     display: block;
@@ -448,21 +449,32 @@ COLOR = [
     text-align: center;
 }
 
-/* KOLORY SEKCJI - szary */
+/* ================================================================= */
+/* ================================================================= */
+/* ================================================================= */
+
+/* KOLORY SEKCJI - gray */
 .section.color-gray {
-    background-color: #787878;
-    color: var(--color-grays);
-    border-color: #787878;
+    background-color: #c2c2c2;
+    color: var(--color-primary);
+    border-color: #c2c2c2;
 }
 .color-gray h1, .color-gray h2, .color-gray h3 {
-    color: var(--color-grays);
+    color: var(--color-primary);
 }
-.color-gray .button {
-    background-color: var(--color-grays);
-    color: var(--color-accent-1);
-    border: 3px solid var(--color-accent-1);
+
+/* KOLORY SEKCJI - aqua */
+.section.color-aqua {
+    background-color: #9ccdd9;
+    color: var(--color-primary);
+    border-color: #9ccdd9;
 }
-/* KOLORY SEKCJI - niebieski */
+.color-aqua h1, .color-aqua h2, .color-aqua h3 {
+    color: var(--color-primary);
+}
+
+
+/* KOLORY SEKCJI - blue */
 .section.color-blue {
     background-color: #5683a1;
     color: var(--color-secondary);
@@ -474,22 +486,32 @@ COLOR = [
 .color-blue .button {
     background-color: var(--color-secondary);
     color: var(--color-accent-1);
-    border: 3px solid var(--color-accent-1);
 }
 .color-blue .button:hover {
-    color: var(--color-accent-1)!important;
+    color: var(--color-accent-2)!important;
 }
-.color-blue a {
-    color: var(--color-grays);
+.color-blue a:not(.button) {
+    color: var(--color-secondary);
+    text-decoration: underline;
 }
 .color-blue a:hover {
     color: var(--color-secondary)!important;
 }
-/* KOLORY SEKCJI - różowy */
+
+/* KOLORY SEKCJI - green */
+.section.color-green {
+    background-color: #a2d7c5;
+    border-color: #a2d7c5;
+    color: var(--color-primary);
+}
+.color-green h1, .color-green h2, .color-green h3 {
+    color: var(--color-primary);
+}
+/* KOLORY SEKCJI - pink */
 .section.color-pink {
-    background-color: #a67ba3;
+    background-color: #9a6f97;
     color: var(--color-secondary);
-    border-color: #a67ba3;
+    border-color: #9a6f97;
 }
 .color-pink h1, .color-pink h2, .color-pink h3 {
     color: var(--color-secondary);
@@ -497,34 +519,27 @@ COLOR = [
 .color-pink .button {
     background-color: var(--color-secondary);
     color: var(--color-accent-2);
-    border: 3px solid var(--color-accent-2);
 }
 .color-pink .button:hover {
     color: var(--color-accent-2)!important;
 }
-.color-pink a {
-    color: var(--color-grays);
+.color-pink a:not(.button) {
+    color: var(--color-secondary);
+    text-decoration: underline;
 }
 .color-pink a:hover {
     color: var(--color-secondary)!important;
 }
-/* KOLORY SEKCJI - zielony */
-.section.color-green {
-    background-color: #a2d7c5;
-    border-color: #a2d7c5;
-}
-.color-green h1, .color-green h2, .color-green h3 {
-    color: var(--color-primary);
-}
-.color-green .button {
-    background-color: var(--color-secondary);
-    color: var(--color-accent-1);
-    border: 3px solid var(--color-accent-1);
-}
 
 
+/* ================================================================= */
+/* ================================================================= */
+/* ================================================================= */
 
 /* LANDING PAGE / HOME */
+.home-header {
+    color: var(--color-secondary);
+}
 #offer-container p {
     color: var(--color-grays);
     text-align: center;
@@ -607,6 +622,10 @@ COLOR = [
     margin-top: 15vh;
     color: var(--color-primary);
 }
+#gallery-container p {
+    text-align: center;
+    color: var(--color-primary);
+}
 .gallery-section-body {
     margin: 10vh auto 1vh auto;
     width: calc(95vw - 40px);
@@ -620,36 +639,40 @@ COLOR = [
 .gallery-col {
     flex: 1 1 320px;
     padding: 20px;
-    border-radius: 10px;
 }
-.gallery-col img {
+.img-wrapper {
+    overflow: hidden;
+    border-radius: 12px;
+}
+.img-wrapper img {
     min-width: 400px;
     width: 100%;
     height: auto;
     aspect-ratio: 3 / 2;
     object-fit: cover;
     object-position: center;
-    border-radius: 10px;
     transition: var(--transition);
     display: block;
 }
-.gallery-col img:hover {
-    overflow: hidden;
-    transform: scale(1.02);
-    box-shadow: var(--shadow);
-}
-.gallery-col p {
-    color: var(--color-primary);
+.img-wrapper:hover img {
+    transform: scale(1.03);
 }
 
+
+.map-container {
+    background-color: var(--color-secondary);
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+    margin-top: 10vh;
+}
 .map-container .header {
     color: var(--color-primary);
-    margin-top: 80px;
+    margin-top: 0px;
 }
 .map {
     display: block;
     margin: 80px auto 0px auto;
-    width: calc(90vw - 100px);
+    width: calc(90vw - 40px);
     max-width: 1000px;
     border-radius: 20px;
     height: auto;

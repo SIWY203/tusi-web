@@ -88,3 +88,7 @@ def pricing(request):
         'title': 'Pricing',
         'posts': posts
     })
+
+
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)

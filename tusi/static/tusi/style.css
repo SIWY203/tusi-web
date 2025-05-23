@@ -18,7 +18,7 @@
     --z-bg: -10;
     --z-hero: -5;
     --z-body: 0;
-    --dropdown: 1;
+    --z-dropdown: 1;
     --z-nav: 5;
     --z-nav-btn: 6;
     --z-nav-mobile: 10;
@@ -29,8 +29,8 @@ body {
     z-index: var(--z-body);
     font-family: var(--ff);
     margin: 0;
-    background-color: var(--bg-color);
     scroll-behavior: smooth;
+    background: url("/static/img/bg.jpg") fixed;
 }
 h1, h2, h3 {
     color: var(--color-primary);
@@ -53,13 +53,13 @@ a {
     color: var(--color-accent-1);
     transition: var(--transition);
     text-decoration: none;
+    display: inline-block;
 }
 a:hover {
     transform: scale(1.05);
 }
 #content a:hover:not(.button) {
     color: var(--color-accent-2);
-    /* opacity: 70%; */
 }
 .links {
     font: var(--links);
@@ -99,7 +99,7 @@ a:hover {
     object-position: center;
     filter: brightness(0.7) contrast(1.2);
 }
-.header, #content, #nav, #footer {
+.header, #content, #footer {
     position: relative;
 }
 .header {
@@ -109,14 +109,13 @@ a:hover {
     margin-right: 4vw;
     font-weight: bold;
     font-size: clamp(1rem, calc(7vw + 0.5rem), 4rem);
-    color: var(--color-secondary);
+    color: var(--color-primary);
 }
 #content {
     display: block;
     margin: 0;
 }
 .button {
-    display: inline-block;
     margin-top: 20px;
     padding: 12px 24px;
     background-color: var(--color-accent-1);
@@ -319,7 +318,7 @@ a:hover {
     display: none;
     position: absolute;
     background-color: var(--color-primary);
-    top: calc(100% + 24px);
+    top: calc(100% + 1px);
     left: calc(-100%);
     width: 300%;
     text-align: left;
@@ -330,8 +329,9 @@ a:hover {
 .dropdown-content a {
     padding: 10px 20px 10px 20px !important;
 }
-.dropdown:hover {
-    scale: 1.03;
+.dropdown {
+    z-index: var(--z-dropdown);
+    scale: 1.0;
 }
 .dropdown:hover .dropdown-content, .dropdown-content a {
     display: block;

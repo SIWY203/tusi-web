@@ -34,6 +34,7 @@ STYLE = [
 COLOR = [
     ('color-white',     'Biały'),
     ('color-gray',      'Szary'),
+    ('color-aqua',      'Błękitny'),
     ('color-blue',      'Niebieski'),
     ('color-green',     'Zielony'),
     ('color-pink',      'Różowy'),
@@ -51,7 +52,7 @@ class Page(models.Model):
     image = models.ImageField(blank=True, null=True, upload_to='images/', max_length=255)
     date = models.DateTimeField(blank=True, null=True)
     style = models.CharField(max_length=90, choices=STYLE, default='default')
-    color = models.CharField(max_length=90, choices=COLOR, default='kol-bialy')
+    color = models.CharField(max_length=90, choices=COLOR, default='color-white')
     order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -96,7 +97,7 @@ class Gallery(Page):
 
     class Meta:
         verbose_name = "Galeria"
-        verbose_name_plural = "Galerie"
+        verbose_name_plural = "Galeria"
 
 
 class Contact(Page):
@@ -110,11 +111,11 @@ class Pricing(Page):
 
     class Meta:
         verbose_name = "Cennik"
-        verbose_name_plural = "Cenniki"
+        verbose_name_plural = "Cennik"
 
 
 class Home(Page):
 
     class Meta:
         verbose_name = "Główna"
-        verbose_name_plural = "Główne"
+        verbose_name_plural = "Główna"

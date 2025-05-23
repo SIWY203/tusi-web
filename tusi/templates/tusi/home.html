@@ -8,7 +8,7 @@
 
 
 {% block header %}
-    Diagnoza i terapia TUSI
+    <div class="home-header">Diagnoza i terapia TUSI</div>
 {% endblock header %}
 
 {% block content %}
@@ -58,19 +58,23 @@
 <!-- gallery panel -->
 <div id="gallery-container">
     <div class="gallery-header header">Galeria</div>
+    <p>Zobacz naszą galerię by poznać nas lepiej</p>
     <div class="gallery-section-body">
         {% for item in gallery %} 
         <div class="gallery-col">
             {% if item.image %}
-            <a href="{% url 'gallery' %}">
-                <img src="{{ item.image.url }}"/>
-            </a>
+            <div class="img-wrapper">
+                <a href="{% url 'gallery' %}">
+                    <img src="{{ item.image.url }}"/>
+                </a>
+            </div>
             {% endif %}
                 <p>{{ item.text|safe }}</p>
         </div> <!-- col -->
         {% endfor %}
     </div> <!-- section-body -->
 </div> <!-- container -->
+
 
 <div class="map-container">
     <div class="header">Tu jesteśmy</div>
