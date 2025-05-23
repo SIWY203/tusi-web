@@ -22,14 +22,12 @@ bash setup.sh
 
 === TO DO ===
 
-home page dalej
-!! dodatkowe posty zniszczą home
-
-spolszczyć interfejs
+kolorowe sekcje poprawić
+tło strony
+opis galerii w home
+spolszczyć admin
 
 __init__ pakiety ogarnąć
-strefa czasowa
-migracja bazy danych
 brak 404
 
 ckeditor - poprawić upload zdjęć w główne pole
@@ -39,5 +37,5 @@ konto moderatora
 dokumentacja
 prezentacja
 
-statyczne w wersji produkcyjnej, żeby działały - requirements: whitenoise==6.9.0
+
 settings.py: Debug=False, Hosts [*]
