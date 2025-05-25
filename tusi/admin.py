@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django import forms
-from .models import News, AboutUs, Offer, Gallery, Contact, Pricing, Footer, Home, Page
+from .models import News, AboutUs, Offer, Gallery, Contact, Pricing, Footer, Home
+
 from offer_subpages.models import OfferItem
 from .widgets import LinkSelectWidget
 
@@ -62,9 +63,13 @@ class OfferAdmin(BasePageAdmin):
     ordering = ['order']
 
 class GalleryAdmin(BasePageAdmin):
-    list_display = ['name', 'style', 'color', 'order']
-    list_editable = ['style', 'color', 'order']
+    list_display = ['name', 'color', 'order']
+    list_editable = ['color', 'order']
     ordering = ['order']
+
+    def get_fields(self, request, obj=None):
+        return ['name', 'title', 'text', 'image', 'date', 'color', 'order']
+
 
 class ContactAdmin(BasePageAdmin):
     list_display = ['name', 'style', 'color', 'order']

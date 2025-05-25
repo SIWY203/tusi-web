@@ -680,3 +680,124 @@ COLOR = [
     border: 0;
     border-radius: 10px;
 }
+
+
+/* GALLERY */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+.gallery-item {
+    background: #f9f9f9;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--shadowdark);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.gallery-title {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+.gallery-description {
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin: 0;
+}
+.gallery-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: zoom-out;
+}
+#lightbox img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.34);
+}
+.gallery-image {
+    cursor: zoom-in;
+    transition: var(--transition);
+}
+.gallery-image:hover {
+    transform: scale(1.02);
+}
+
+/* === GALLERY COLORS === */
+.gallery-item {
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    color: var(--color-primary); /* domyślnie */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-item h1,
+.gallery-item h2,
+.gallery-item h3 {
+    margin: 0;
+}
+
+
+.color-white {
+    background-color: #ffffff;
+}
+.color-gray {
+    background-color: #c2c2c2;
+}
+.color-aqua {
+    background-color: #9ccdd9;
+}
+.color-green {
+    background-color: #a2d7c5;
+}
+.color-blue {
+    background-color: #5683a1;
+    color: var(--color-secondary); /* jasny tekst */
+}
+.color-pink {
+    background-color: #9a6f97;
+    color: var(--color-secondary); /* jasny tekst */
+}
+
+
+.color-blue .button,
+.color-pink .button {
+    background-color: var(--color-secondary);
+    color: var(--color-accent-1);
+}
+.color-blue .button:hover,
+.color-pink .button:hover {
+    color: var(--color-accent-2)!important;
+}
+.color-blue a:not(.button),
+.color-pink a:not(.button) {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+.color-blue a:hover,
+.color-pink a:hover {
+    color: var(--color-secondary)!important;
+}
