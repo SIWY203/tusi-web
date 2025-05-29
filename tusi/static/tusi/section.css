@@ -717,6 +717,7 @@ COLOR = [
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 8px;
+    align-items: flex-end;
 }
 #lightbox {
     position: fixed;
@@ -800,4 +801,18 @@ COLOR = [
 .color-blue a:hover,
 .color-pink a:hover {
     color: var(--color-secondary)!important;
+}
+
+
+/* OFFER */
+
+.offer-link {
+    display: block;
+    color: var(--color-primary);
+
+}
+
+.offer-link:hover {
+    color: var(--color-primary);
+    transform: scale(1.01);
 }

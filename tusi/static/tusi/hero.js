@@ -13,9 +13,9 @@ function updateOfferLayout() {
 
     offer.style.height = `${sectionHeight + fixHeight + 200}px`;
 
-    if (scrollY > 200) {
+    if (scrollY > 180) {
         hero.style.position = 'absolute';
-        hero.style.top = '200px';
+        hero.style.top = '180px';
         offer.style.position = 'absolute';
         offer.style.top = `${top}px`;
     } else {

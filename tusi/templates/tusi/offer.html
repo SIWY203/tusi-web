@@ -12,14 +12,11 @@
         {% include 'tusi/section.html' %}
     {% endfor %}
 
-{% comment %} 
-    {% for item in pricing %}  
-        {% include 'tusi/section.html' %}
-    {% endfor %}
-{% endcomment %}
 
     {% for item in items %}  
-        {% include 'tusi/section.html' %}
+        <a class="offer-link" href="{% url 'offer_subpage' slug=item.offer_item.slug %}">
+            {% include 'tusi/section.html' %}
+        </a>
     {% endfor %}
 
     
