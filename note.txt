@@ -20,18 +20,15 @@ bash setup.sh
 
 
 
+
 === TO DO ===
 
 spolszczyć admin
 
-__init__ pakiety ogarnąć
 
-ckeditor - poprawić upload zdjęć w główne pole
-coś zamiast ckeditora?
-
-konto moderatora
 dokumentacja
 prezentacja
 
 
+__init__ pakiety
 settings.py: Debug=False, Hosts [*]
