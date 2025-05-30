@@ -1,10 +1,11 @@
 :root {
-    --color-primary: #333;
+    --color-font: #333;
+    --color-primary: #1e7d75;
     --color-secondary: #fff;
-    --color-accent-1: #146785;
-    --color-accent-2: #9d4d88;
+    --color-accent-1: #289b91;
+    --color-accent-2: #bc76a9;
     --color-grays: #d4d4d4;
-    --color-dark: #222;
+    --color-dark: #197069;
     --bg-color: #c6cfd4;
     --ff: "DM Sans", sans-serif;
     --h1: bold 54px/64px var(--ff);
@@ -33,7 +34,7 @@ body {
     background: url("/static/img/bg.jpg") fixed;
 }
 h1, h2, h3 {
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 h1 {
     font: var(--h1);
@@ -50,7 +51,7 @@ p {
 }
 a {
     font: var(--links);
-    color: var(--color-accent-1);
+    color: var(--color-primary);
     transition: var(--transition);
     text-decoration: none;
     display: inline-block;
@@ -97,7 +98,7 @@ a:hover {
     height: 75vh;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.7) contrast(1.2);
+    filter: brightness(0.9) contrast(1.2);
 }
 .header, #content, #footer {
     position: relative;
@@ -109,7 +110,7 @@ a:hover {
     margin-right: 4vw;
     font-weight: bold;
     font-size: clamp(1rem, calc(7vw + 0.5rem), 4rem);
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 #content {
     display: block;
@@ -118,7 +119,7 @@ a:hover {
 .button {
     margin-top: 20px;
     padding: 12px 24px;
-    background-color: var(--color-accent-1);
+    background-color: var(--color-primary);
     color: var(--color-secondary);
     font: var(--links);
     border: none;
@@ -263,7 +264,7 @@ a:hover {
     box-shadow: var(--shadowdark);
     cursor: pointer;
 }
-#nav-home-button {
+#nav-mobile-home-button {
     z-index: var(--z-nav-mobile-btn);
     transition: var(--transition);
     border: none;
@@ -271,16 +272,19 @@ a:hover {
     height: 30px;
     padding: 13px 20px 23px 20px !important;
     cursor: pointer;
+    display: none;
 }
-#nav-home-button:hover {
+#nav-mobile-home-button:hover {
     transform: scale(1.03);
     background-color: var(--color-accent-1);
     box-shadow: var(--shadow);
 }
-#nav-home-button img {
+#nav-mobile-home-button img {
     width: 100%;
     filter: invert(1);
 }
+
+
 
 /* Search Field */
 .search-field {
@@ -339,7 +343,7 @@ a:hover {
 
 /* Footer */
 #footer {
-    background-color: var(--color-primary);
+    background-color: var(--color-accent-2);
     color: var(--color-secondary);
     padding: 6vh;
     margin: 80px 0 0 0;
@@ -379,7 +383,6 @@ a:hover {
 }
 .admin-button:hover {
     transform: scale(1.03);
-    color: var(--color-accent-2);
 }
 #scrollTopBtn {
     display: none;
@@ -407,13 +410,13 @@ a:hover {
 
 
 @media screen and (max-width: 1000px) {
-    #nav a:not(#nav-home-button) {
+    #nav a:not(#nav-mobile-home-button) {
         display: none;
     }
-    #nav-home-button {
+    #nav-mobile-home-button {
         margin-right: 73px;
     }
-    #menu-button, #close-button, #nav-home-button {
+    #menu-button, #close-button, #nav-mobile-home-button {
         display: block;
     }
     .search-field input[type="text"] {

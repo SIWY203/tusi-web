@@ -456,21 +456,21 @@ COLOR = [
 /* KOLORY SEKCJI - gray */
 .section.color-gray {
     background-color: #c2c2c2;
-    color: var(--color-primary);
+    color: var(--color-font);
     border-color: #c2c2c2;
 }
 .color-gray h1, .color-gray h2, .color-gray h3 {
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 
 /* KOLORY SEKCJI - aqua */
 .section.color-aqua {
     background-color: #9ccdd9;
-    color: var(--color-primary);
+    color: var(--color-font);
     border-color: #9ccdd9;
 }
 .color-aqua h1, .color-aqua h2, .color-aqua h3 {
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 
 
@@ -485,7 +485,7 @@ COLOR = [
 }
 .color-blue .button {
     background-color: var(--color-secondary);
-    color: var(--color-accent-1);
+    color: #46708c!important;
 }
 .color-blue .button:hover {
     color: var(--color-accent-2)!important;
@@ -502,10 +502,10 @@ COLOR = [
 .section.color-green {
     background-color: #a2d7c5;
     border-color: #a2d7c5;
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 .color-green h1, .color-green h2, .color-green h3 {
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 /* KOLORY SEKCJI - pink */
 .section.color-pink {
@@ -518,7 +518,7 @@ COLOR = [
 }
 .color-pink .button {
     background-color: var(--color-secondary);
-    color: var(--color-accent-2);
+    color: var(--color-accent-2)!important;
 }
 .color-pink .button:hover {
     color: var(--color-accent-2)!important;
@@ -539,9 +539,10 @@ COLOR = [
 /* LANDING PAGE / HOME */
 .home-header {
     color: var(--color-secondary);
+    text-shadow: 3px 3px 8px var(--color-font), 0 1px 0 #fff;
 }
 #offer-container p {
-    color: var(--color-grays);
+    color: var(--color-secondary);
     text-align: center;
 }
 #offer-container a {
@@ -620,11 +621,11 @@ COLOR = [
 
 .gallery-header {
     margin-top: 15vh;
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 #gallery-container p {
     text-align: center;
-    color: var(--color-primary);
+    color: var(--color-font);
 }
 .gallery-section-body {
     margin: 10vh auto 1vh auto;
@@ -643,19 +644,27 @@ COLOR = [
 .img-wrapper {
     overflow: hidden;
     border-radius: 12px;
+    aspect-ratio: 3 / 2;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.img-wrapper a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 .img-wrapper img {
-    min-width: 400px;
     width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 2;
     object-fit: cover;
     object-position: center;
     transition: var(--transition);
     display: block;
+    background: inherit;
 }
 .img-wrapper:hover img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 
@@ -666,7 +675,7 @@ COLOR = [
     margin-top: 10vh;
 }
 .map-container .header {
-    color: var(--color-primary);
+    color: var(--color-font);
     margin-top: 0px;
 }
 .map {
@@ -701,14 +710,14 @@ COLOR = [
     gap: 1rem;
 }
 .gallery-title {
-    color: var(--color-primary);
+    color: var(--color-font);
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0;
 }
 .gallery-description {
     font-size: 1rem;
-    color: var(--color-primary);
+    color: var(--color-font);
     margin: 0;
 }
 .gallery-image {
@@ -751,7 +760,7 @@ COLOR = [
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
-    color: var(--color-primary); /* domyślnie */
+    color: var(--color-font); /* domyślnie */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -808,11 +817,11 @@ COLOR = [
 
 .offer-link {
     display: block;
-    color: var(--color-primary);
+    color: var(--color-font);
 
 }
 
 .offer-link:hover {
-    color: var(--color-primary);
+    color: var(--color-font);
     transform: scale(1.01);
 }

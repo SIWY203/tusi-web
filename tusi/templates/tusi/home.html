@@ -43,11 +43,13 @@
 </div> <!-- container -->
 
 
+{% comment %} 
 {% if news %}
     {% with item=news %} 
         {% include 'tusi/section.html' %}
     {% endwith %}
-{% endif %}
+{% endif %} 
+{% endcomment %}
 
 
 {% if home_2 %}

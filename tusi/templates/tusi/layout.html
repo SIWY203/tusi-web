@@ -21,7 +21,8 @@
         <form class="search-field" action="" method="get">
             <input type="text" name="search-field" placeholder="Szukaj..." />
         </form>
-        <a href="{% url 'home' %}" id="nav-home-button"><img src="{% static 'img/home.svg' %}" alt="Strona Domowa" /></a>
+        <a href="{% url 'home' %}" id="nav-mobile-home-button"><img src="{% static 'img/home.svg' %}" alt="Strona Domowa" /></a>
+        <a href="{% url 'home' %}">Strona Domowa</a>
         <a href="{% url 'news' %}">Aktualności</a>
         <a href="{% url 'about_us' %}">O nas</a>
         <div class="dropdown">
