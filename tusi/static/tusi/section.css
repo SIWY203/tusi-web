@@ -62,7 +62,7 @@ COLOR = [
 .default.section .col2 {
     order: 2;
     flex: 1;
-    min-width: 360px;
+    min-width: 300px;
     height: 100%;
 
 }
@@ -98,10 +98,15 @@ COLOR = [
 .default-j.section .col2 {
     order: 2;
     flex: 1;
-    min-width: 360px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     text-align: justify;
+}
+.default-j.section .col2 h1,
+.default-j.section .col2 h2,
+.default-j.section .col2 h3 {
+    text-align: center;
 }
 .default-j.section .col2 > * {
     align-self: flex-start;
@@ -141,7 +146,7 @@ COLOR = [
 .default-c.section .col2 {
     order: 2;
     flex: 1;
-    min-width: 360px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -182,7 +187,7 @@ COLOR = [
 .img-left-s.section .col2 {
     order: 2;
     flex: 3;
-    min-width: 360px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -216,7 +221,7 @@ COLOR = [
 .img-right-s.section .col2 {
     order: 1;
     flex: 3;
-    min-width: 360px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -247,12 +252,12 @@ COLOR = [
 .img-left-m.section .col1 {
     order: 1;
     flex: 1;
-    min-width: 360px;
+    min-width: 300px;
 }
 .img-left-m.section .col2 {
     order: 2;
     flex: 2;
-    min-width: 360px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -280,7 +285,7 @@ COLOR = [
 .img-right-m.section .col2 {
     order: 1;
     flex: 2;
-    min-width: 320px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -299,12 +304,12 @@ COLOR = [
 .img-left-l.section .col1 {
     order: 1;
     flex: 3;
-    min-width: 360px;
+    min-width: 300px;
 }
 .img-left-l.section .col2 {
     order: 2;
     flex: 1;
-    min-width: 360px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -332,7 +337,7 @@ COLOR = [
 .img-right-l.section .col2 {
     order: 1;
     flex: 1;
-    min-width: 320px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -363,7 +368,7 @@ COLOR = [
 .img-top.section .col2 {
     order: 2;
     flex: 1;
-    min-width: 320px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -395,7 +400,7 @@ COLOR = [
 .img-bot.section .col2 {
     order: 1;
     flex: 1;
-    min-width: 320px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
 }
@@ -824,4 +829,16 @@ COLOR = [
 .offer-link:hover {
     color: var(--color-font);
     transform: scale(1.01);
+}
+
+
+
+/* Fix phones */
+@media screen and (max-width: 600px){
+    .section {
+        padding: 15px!important;
+    }
+    .default-j.section p {
+        text-align: left!important;
+    }
 }
