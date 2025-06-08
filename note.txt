@@ -12,23 +12,14 @@ print(django.get_version())
 pip freeze > requirements.txt
 pip install -r requirements.txt
 
+
+
 ======== setup.sh script ========
 
 bash setup.sh
 
 
 
-
-
-
 === TO DO ===
 
-spolszczyć admin
-
-
-dokumentacja
-prezentacja
-
-
-__init__ pakiety
 settings.py: Debug=False, Hosts [*]
